@@ -68,7 +68,7 @@ Puedes modificar a tu criterio los mensajes de error para cada campo.
     - `age`: Edad del usuario (integer, opcional, si se proporciona, debe ser un número entero mayor que 0).
     - `role`: Rol del usuario, puede ser `user` o `admin`. Por defecto es `user`
 
-Frontend (React)
+## Frontend (React)
 
 ### **Página de Login (`/login`)**:
 
