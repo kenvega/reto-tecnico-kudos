@@ -15,7 +15,7 @@ export default function HeaderActions() {
     } catch (e) {
       console.error(e);
     } finally {
-      navigate("/");
+      navigate("/login");
     }
   }
 
