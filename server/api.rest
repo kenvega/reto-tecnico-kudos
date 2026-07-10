@@ -6,7 +6,8 @@
 # =====================
 
 @baseUrl = http://localhost:3000/api
-@testEmail = test@test.com
+@adminEmail = admin@kudos.com
+@user2Email = user2@kudos.com
 @testPassword = 123456
 
 
@@ -19,7 +20,7 @@ POST {{baseUrl}}/register
 Content-Type: application/json
 
 {
-  "email": "{{testEmail}}",
+  "email": "{{user2Email}}",
   "password": "{{testPassword}}",
   "confirmPassword": "{{testPassword}}"
 }
@@ -29,7 +30,7 @@ POST {{baseUrl}}/login
 Content-Type: application/json
 
 {
-  "email": "{{testEmail}}",
+  "email": "{{adminEmail}}",
   "password": "{{testPassword}}"
 }
 
@@ -38,3 +39,18 @@ GET {{baseUrl}}/me
 
 ### Logout (requires login)
 POST {{baseUrl}}/logout
+
+# =====================
+# Upload Endpoints
+# =====================
+
+### Upload CSV file (requires login)
+POST {{baseUrl}}/upload
+Content-Type: multipart/form-data; boundary=----Boundary
+
+------Boundary
+Content-Disposition: form-data; name="file"; filename="test.csv"
+Content-Type: text/csv
+
+< ../docs/test.csv
+------Boundary--

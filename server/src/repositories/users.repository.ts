@@ -22,6 +22,18 @@ export const usersRepository = {
     return result.rows[0]!;
   },
 
+  async createFromCsv(user: {
+    name: string;
+    email: string;
+    age: number | null;
+  }): Promise<User> {
+    const result = await query<User>(
+      "INSERT INTO users (name, email, password, age) VALUES ($1, $2, '', $3) RETURNING *",
+      [user.name, user.email, user.age]
+    );
+    return result.rows[0]!;
+  },
+
   async findById(id: number): Promise<User | null> {
     const result = await query<User>("SELECT * FROM users WHERE id = $1", [id]);
     return result.rows[0] || null;
