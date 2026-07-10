@@ -42,7 +42,8 @@ CREATE TABLE public.users (
     email text NOT NULL,
     password text NOT NULL,
     created_at timestamp with time zone DEFAULT CURRENT_TIMESTAMP,
-    updated_at timestamp with time zone DEFAULT CURRENT_TIMESTAMP
+    updated_at timestamp with time zone DEFAULT CURRENT_TIMESTAMP,
+    role text DEFAULT 'user'::text NOT NULL
 );
 
 
@@ -123,4 +124,5 @@ CREATE INDEX idx_session_expire ON public.sessions USING btree (expire);
 
 INSERT INTO public.schema_migrations (version) VALUES
     ('20260708040052'),
-    ('20260708043455');
+    ('20260708043455'),
+    ('20260710003832');
